@@ -28,12 +28,11 @@
     // Database query to insert data 
     $query .=
       "INSERT INTO steder VALUES 
-    ('" . $data["id"] . "','" . $data["hovedtype"] . "', '" . $data["undertype"] . "', '" . $data["primærtnavn"] . "',
+    ('" . $data["hovedtype"] . "', '" . $data["undertype"] . "', '" . $data["primærtnavn"] . "',
     '" . $data["primærnavnestatus"] . "', '" . $data['kommuner'][0]["navn"] . "', '" . $data['kommuner'][0]["kode"] . "', '" . $data['visueltcenter'][0] . "', '" . $data['visueltcenter'][1] . "'); ";
 
     $table .= '
 <tr>
-    <td>' . $data["id"] . '</td>
     <td>' . $data["hovedtype"] . '</td>
     <td>' . $data["undertype"] . '</td>
     <td>' . $data["primærtnavn"] . '</td>
@@ -51,7 +50,6 @@
     echo '
 <table class="table table-bordered">
 <tr>
-    <th>ID</th>
     <th>Hovedtype</th>
     <th>Undertype</th>
     <th>Primærtype</th>

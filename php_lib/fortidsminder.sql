@@ -3,7 +3,6 @@ create database fortidsminderdb;
 use fortidsminderdb
 
 CREATE TABLE IF NOT EXISTS `steder` (
-    `id` bigint not null auto_increment primary key,
   `hovedtype` varchar(200) NOT NULL,
   `undertype` varchar(200) NOT NULL,
   `primærnavn` varchar(200) NOT NULL,
