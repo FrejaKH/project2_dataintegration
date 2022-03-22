@@ -1,6 +1,6 @@
 drop database if exists fortidsminderdb;
 create database fortidsminderdb;
-use fortidsminderdb
+use fortidsminderdb;
 
 CREATE TABLE IF NOT EXISTS `steder` (
   `hovedtype` varchar(200) NOT NULL,
