@@ -28,15 +28,18 @@
     // Database query to insert data 
     $query .=
       "INSERT INTO steder VALUES 
-    ('" . $data["hovedtype"] . "', '" . $data["undertype"] . "', 
-    '" . $data["primærtnavn"] . "', '" . $data['kommuner'][0]["navn"] . "', '" . $data['visueltcenter'][0] . "', '" . $data['visueltcenter'][1] . "'); ";
+    ('" . $data["id"] . "','" . $data["hovedtype"] . "', '" . $data["undertype"] . "', '" . $data["primærtnavn"] . "',
+    '" . $data["primærnavnestatus"] . "', '" . $data['kommuner'][0]["navn"] . "', '" . $data['kommuner'][0]["kode"] . "', '" . $data['visueltcenter'][0] . "', '" . $data['visueltcenter'][1] . "'); ";
 
     $table .= '
 <tr>
+    <td>' . $data["id"] . '</td>
     <td>' . $data["hovedtype"] . '</td>
     <td>' . $data["undertype"] . '</td>
     <td>' . $data["primærtnavn"] . '</td>
+    <td>' . $data["primærnavnestatus"] . '</td>
     <td>' . $data['kommuner'][0]["navn"] . '</td>
+    <td>' . $data['kommuner'][0]["kode"] . '</td>
     <td>' . $data['visueltcenter'][0] . '</td>
     <td>' . $data['visueltcenter'][1] . '</td>
 </tr>
@@ -48,13 +51,16 @@
     echo '
 <table class="table table-bordered">
 <tr>
+    <th>ID</th>
     <th>Hovedtype</th>
     <th>Undertype</th>
     <th>Primærtype</th>
+    <th>primærnavnestatus</th>
     <th>Kommuner</th>
+    <th>kommunekode</th>
     <th>Længdegrader</th>
     <th>Breddegrader</th>
-    </tr>
+</tr>
 ';
     echo $table;
     echo '</table>';
