@@ -13,7 +13,7 @@
 
   $query = '';
   $table = '';
-  $tal = 500;
+  // $tal = 500;
 
 
   // Get data from API
@@ -26,10 +26,10 @@
 
   // Extracting data
   foreach ($json as $data) {
-    if($tal > 0){
+    // if($tal > 0){
 
  
-      $adress = getAdresse($data['visueltcenter'][0], $data['visueltcenter'][1]);
+      // $adress = getAdresse($data['visueltcenter'][0], $data['visueltcenter'][1]);
       // Database query to insert data 
 
       // var_dump($adress[0]['adressebetegnelse']);
@@ -54,12 +54,11 @@
     <td>' . $data['kommuner'][0]["kode"] . '</td>
     <td>' . $data['visueltcenter'][0] . '</td>
     <td>' . $data['visueltcenter'][1] . '</td>
-    <td>' .$adress[0]['adressebetegnelse'] . '</td>
 
 </tr>
 ';
-$tal++;
-}
+// $tal++;
+// }
                   }
   // Display data
   if (mysqli_multi_query($connect, $query)) {
