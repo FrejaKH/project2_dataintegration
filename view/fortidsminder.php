@@ -10,19 +10,42 @@
 </head>
 <body>
 <?php include ('../modules/header.php');?>
-   <div class="pageStructureFront">
-      <div class="exerciseDivFront">
-        <div style="display: flex; align-items: center; flex-direction: column; width: 90%; background-color: azure; border-radius: 10px;">
-          <h2>Vælg et spil</h2>
-          <form action="gaetettal.html">
-            <input class="inputFront" type="submit" value="Gæt et tal">
-        </form>
-          <!-- <button><a href="gaetettal.html">Gætettal</a></button> -->
-        </div>
-   
-      </div>
-     
-  </div>
+
+  <form action="fortidsminder.php" method="POST">
+    <div>
+      <input name="vejnavn" type="text" placeholder="Vejnavn">
+    </div>
+    <div>
+      <input name="husnr" type="text" placeholder="Husnr">
+    </div>
+    <div>
+      <input name="postnummer" type="text" placeholder="Postnummer">
+    </div>
+
+    <div>
+      <input name="afstand" type="text" placeholder="Max afstand" min="0">
+    </div>
+    <div>
+      <input name="submit" type="submit" value="Go">
+    </div>
+  </form>
+
+  <form>
+  <select>
+    <option>-- Vælg Fortidsminde --</option>
+      <?php
+      include "form_handler.php";
+        foreach($data_circle as $data){
+          $navn = $data->primærtnavn;
+          echo "<option value='" . $navn . "'>" . $navn . "</option>";
+        }
+      ?>
+    </select>
+  </form>
+
+  <?php mysqli_close($connect);
+  ?>
+
    <?php include ('../modules/footer.php');?>
 </body>
 </html>
