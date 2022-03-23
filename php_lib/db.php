@@ -13,6 +13,8 @@
 
   $query = '';
   $table = '';
+  $tal = 500;
+
 
   // Get data from API
   $url = "https://api.dataforsyningen.dk/steder?hovedtype=Fortidsminde";
@@ -24,14 +26,24 @@
 
   // Extracting data
   foreach ($json as $data) {
+    if($tal > 0){
 
-    // Database query to insert data 
+ 
+      $adress = getAdresse($data['visueltcenter'][0], $data['visueltcenter'][1]);
+      // Database query to insert data 
 
-    $query .=
+      // var_dump($adress[0]['adressebetegnelse']);
+      // exit();
+      // die();
+
+
+    // $query .=
       "INSERT INTO steder(hovedtype, undertype, primærtnavn, primærnavnstatus,
       kommunenavn, kommunekode, længde, bredde) VALUES 
     ('" . $data["hovedtype"] . "', '" . $data["undertype"] . "', '" . $data["primærtnavn"] . "',
     '" . $data["primærnavnestatus"] . "', '" . $data['kommuner'][0]["navn"] . "', '" . $data['kommuner'][0]["kode"] . "', '" . $data['visueltcenter'][0] . "', '" . $data['visueltcenter'][1] . "'); ";
+    // var_dump($query);
+    
     $table .= '
 <tr>
     <td>' . $data["hovedtype"] . '</td>
@@ -42,9 +54,13 @@
     <td>' . $data['kommuner'][0]["kode"] . '</td>
     <td>' . $data['visueltcenter'][0] . '</td>
     <td>' . $data['visueltcenter'][1] . '</td>
+    <td>' .$adress[0]['adressebetegnelse'] . '</td>
+
 </tr>
 ';
-  }
+$tal++;
+}
+                  }
   // Display data
   if (mysqli_multi_query($connect, $query)) {
     echo '
@@ -58,6 +74,7 @@
     <th>kommunekode</th>
     <th>Længdegrader</th>
     <th>Breddegrader</th>
+    <th>Adresse</th>
 </tr>
 ';
     echo $table;
@@ -66,5 +83,20 @@
   ?>
 
 </body>
+<?php
+
+function getAdresse($længde, $bredde){
+  $url = "https://api.dataforsyningen.dk/adresser?cirkel=$længde,$bredde,500";
+
+  $json = file_get_contents($url);
+
+  $json = json_decode($json, true);
+
+  return $json;
+
+}
+
+
+?>
 
 </html>
