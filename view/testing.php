@@ -5,26 +5,36 @@
 </head>
 
 <body>
-  <form action="#" method="POST">
+  <form action="testing.php" method="POST">
     <div>
       <input name="vejnavn" type="text" placeholder="Vejnavn">
     </div>
     <div>
-      <select>
-        <option disabled selected>-- Vælg kommune --</option>
-        <?php
-        include "../php_lib/connect.php";
-        $records = mysqli_query($connect, "SELECT DISTINCT kommunenavn From steder ORDER BY kommunenavn");
-
-        while ($row = mysqli_fetch_array($records)) {
-          echo "<option value='" . $row['kommunenavn'] . "'>" . $row['kommunenavn'] . "</option>";
-        }
-        ?>
-      </select>
-      </div>
-    <div>
-      <input name="afstand" type="number" placeholder="Max afstand" min="0">
+      <input name="husnr" type="text" placeholder="Husnr">
     </div>
+    <div>
+      <input name="postnummer" type="text" placeholder="Postnummer">
+    </div>
+
+    <div>
+      <input name="afstand" type="text" placeholder="Max afstand" min="0">
+    </div>
+    <div>
+      <input name="submit" type="submit" value="Go">
+    </div>
+  </form>
+
+  <form>
+  <select>
+    <option>-- Vælg Fortidsminde --</option>
+      <?php
+      include "form_handler.php";
+        foreach($data_circle as $data){
+          $navn = $data->primærtnavn;
+          echo "<option value='" . $navn . "'>" . $navn . "</option>";
+        }
+      ?>
+    </select>
   </form>
 
   <?php mysqli_close($connect);
