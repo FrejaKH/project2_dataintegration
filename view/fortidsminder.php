@@ -10,45 +10,101 @@
 </head>
 <body>
 <?php include ('../modules/header.php');?>
-<div class="pageStructureFront">
-      <div class="exerciseDivFront">
+<div class="pageStructure">
+    <div class="boxdiv">
+      <div class="paragrahStructure">
+          <h1>Find Fortidsminde nær dig</h2>
+          <p>Udfyld felterne nedenfor, og find de Fortidsminder der er nærmest dig</p>
+      </div> 
+    </div>
+    <div class="boxdiv">
+      <div class="searchBox">    
+      <form class="inputFrom" action="fortidsminder.php" method="POST">
+        <div class="searchInputLabel">
+          <label class="labelstructure">Indtast vejnavn</label>
+          <input name="vejnavn" type="text" placeholder="Vejnavn">
+        </div>
+        <div class="searchInputLabel">
+          <label class="labelstructure">Indtast husnr</label>
+          <input name="husnr" type="text" placeholder="Husnr">
+        </div>
+        <div class="searchInputLabel">
+          <label class="labelstructure">Indtast postnummer</label>
+          <input name="postnummer" type="text" placeholder="Postnummer">
+        </div>
+        <div class="searchInputLabel">
+          <label class="labelstructure">Indtast afstand (meter)</label>
+          <input name="afstand" type="text" placeholder="Max afstand" min="0">
+        </div>
+        <br>
+        <div class="searchInputLabel">
+          <input class="inputFront" name="submit" type="submit" value="Find fortidsminde">
+        </div>
+      </form>
       </div>
+    </div>  
 
-  <form action="fortidsminder.php" method="POST">
-    <div>
-      <input name="vejnavn" type="text" placeholder="Vejnavn">
+    <div class="boxdiv">
+     <div class="paragrahStructure">
+      <p>Nærmeste Fortidsminder</p>
+     </div>
+     </div> 
+     <div class="boxdiv">
+      <form>
+        <select>
+          <option>-- Vælg Fortidsminde --</option>
+          </select>
+        </form>
     </div>
-    <div>
-      <input name="husnr" type="text" placeholder="Husnr">
-    </div>
-    <div>
-      <input name="postnummer" type="text" placeholder="Postnummer">
+    <div class="boxdiv">
+      <div class="searchBoxTable">
+        <div class="table-responsive">    
+      <table class="table">
+          <tr>
+              <th>Navn</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Adresse</th>
+              <th>Kommuner</th>
+          </tr>
+          <tr>
+              <td>test</td>
+              <td>test</td>
+              <td>test</td>
+              <td>test</td>
+              <td>test</td>
+          </tr>  
+      </table>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <input name="afstand" type="text" placeholder="Max afstand" min="0">
+    <div class="boxdiv">
+      <div class="paragrahStructureTable">
+        <p>Restauranter/forplejningsmuligheder i nærheden</p>     
+      </div>
     </div>
-    <div>
-      <input name="submit" type="submit" value="Go">
+    <div class="boxdiv">
+      <div class="searchBoxTable">
+        <div class="table-responsive">    
+      <table class="table">
+          <tr>
+            <th>Navn</th>
+            <th>Type</th>
+            <th>Adresse</th>
+            <th>Afstand fra fortidsminde</th>
+            <th>Kommuner</th>
+          </tr>
+          <tr>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+          </tr>  
+      </table>
+        </div>
+      </div>
     </div>
-  </form>
-
-  <form>
-  <select>
-    <option>-- Vælg Fortidsminde --</option>
-      <?php
-      include "form_handler.php";
-        foreach($data_circle as $data){
-          $navn = $data->primærtnavn;
-          echo "<option value='" . $navn . "'>" . $navn . "</option>";
-        }
-      ?>
-    </select>
-  </form>
-
-  <?php mysqli_close($connect);
-  ?>
-
-   <?php include ('../modules/footer.php');?>
+       <?php include ('../modules/footer.php');?>
 </body>
 </html>

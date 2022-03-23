@@ -43,6 +43,7 @@ html,body{
   button:active {
     transform: translateY(4px);
   }
+  /****************************Header************************************/
   
   
   /* holds the header navigation */
@@ -64,13 +65,13 @@ html,body{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    
-    }
+
+    }       
     .navigationText:hover{
-      background-color: #333;
+        background-color: #333;
     }
   
-  
+  /********************************Structure of all pages *****************/
     .pageStructure{
       display: block;
       /* border: 1px solid black; */
@@ -103,6 +104,11 @@ html,body{
     display: flex;
     justify-content: center;    
     }
+    .boxdiv{
+        width: 100%;
+        display: flex;
+        justify-content: center;    
+        }
     .frontDiv{
       /* border: 2px solid black; */
       display: flex;
@@ -113,7 +119,8 @@ html,body{
       margin-left: 2%;
       
     }
-  
+    /********************************Footer*****************/
+
     footer{
       background-color: #05922C;
       color: white;
@@ -127,3 +134,71 @@ html,body{
          flex-direction: column;
         width: 90%;
     }
+    .paragrahStructure{
+        display: flex;
+        align-items: center;
+         flex-direction: column;
+        width: 90%;
+    }
+    .paragrahStructureTable{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 90%;
+        border-top: 1px solid;
+    }
+    .searchBox{
+        background-color: #05922C;
+        width: 50%;
+        height: 300px;
+        margin: 3%;
+    }
+    .searchBoxTable{
+        background-color: #05922C;
+        width: 90%;
+        height: 300px;
+        margin: 3%;
+    }
+    .searchInputLabel{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .labelstructure{
+        color: white;
+    }
+    .inputFrom{
+        margin: 5%;
+    }
+        /********************************table structure*****************/
+
+    /* Simplified version of Bootstrap's responsive table CSS */
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .table-responsive > table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  .table td {
+      word-wrap: break-word;
+      max-width: 200px;
+      padding-left: 6%;
+      color: white;
+      /* border-bottom: 1pt solid black; */
+  }
+
+  .table th {
+    word-wrap: break-word;
+    max-width: 200px;
+    padding-left: 1%;
+    color: white;
+    /* border-bottom: 1pt solid black; */
+    padding-bottom:20px;
+}
+  /* .table table tr {
+    border-bottom: 2pt solid black;
+} */
