@@ -12,14 +12,13 @@
    <?php include ('../modules/header.php');?>
    <div class="pageStructureFront">
       <div class="exerciseDivFront">
-        <div style="display: flex; align-items: center; flex-direction: column; width: 90%; background-color: azure; border-radius: 10px;">
-          <h2>Vælg et spil</h2>
-          <form action="gaetettal.html">
-            <input class="inputFront" type="submit" value="Gæt et tal">
+        <div style="display: flex; align-items: center; flex-direction: column; width: 90%;">
+          <h1>Velkommen</h2>
+          <p>På denne side kan du indtaste en adresse, og få vist de Fortidsminder som er inden for en afstand, som du ønsker</p>
+          <form action="fortidsminder.php">
+            <input class="inputFront" type="submit" value="Find fortidsminde">
         </form>
-          <!-- <button><a href="gaetettal.html">Gætettal</a></button> -->
-        </div>
-   
+        </div>   
       </div>
      
   </div>
