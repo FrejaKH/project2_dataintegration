@@ -121,3 +121,9 @@ html,body{
       grid-template-columns: 1fr 1fr;
       height: 50px;
     }
+    .welcomegreeting{
+        display: flex;
+        align-items: center;
+         flex-direction: column;
+        width: 90%;
+    }

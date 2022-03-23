@@ -12,7 +12,7 @@
    <?php include ('../modules/header.php');?>
    <div class="pageStructureFront">
       <div class="exerciseDivFront">
-        <div style="display: flex; align-items: center; flex-direction: column; width: 90%;">
+        <div class="welcomegreeting">
           <h1>Velkommen</h2>
           <p>På denne side kan du indtaste en adresse, og få vist de Fortidsminder som er inden for en afstand, som du ønsker</p>
           <form action="fortidsminder.php">

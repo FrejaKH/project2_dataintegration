@@ -10,6 +10,9 @@
 </head>
 <body>
 <?php include ('../modules/header.php');?>
+<div class="pageStructureFront">
+      <div class="exerciseDivFront">
+      </div>
 
   <form action="fortidsminder.php" method="POST">
     <div>
