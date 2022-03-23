@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS `steder` (
   `kommunenavn` varchar(200) NOT NULL,
   `kommunekode` varchar(100) NOT NULL,
   `længde` float NOT NULL,
-  `bredde` float NOT NULL
+  `bredde` float NOT NULL,
+  `adresse` varchar(100) NOT NULL
 );
 
 SET GLOBAL max_allowed_packet=524288000;
