@@ -24,10 +24,12 @@ ini_set('memory_limit', '-1');
       "INSERT INTO steder(id, hovedtype, undertype, primærtnavn, primærnavnstatus,
       kommunenavn, kommunekode, længde, bredde, adresse) VALUES 
     ('" . $data["id"] . "', '" . $data["hovedtype"] . "', '" . $data["undertype"] . "', '" . $data["primærtnavn"] . "',
-    '" . $data["primærnavnestatus"] . "', '" . $data['kommuner'][0]["navn"] . "', '" . $data['kommuner'][0]["kode"] . "', '" . $data['visueltcenter'][0] . "', '" . $data['visueltcenter'][1] . "', '" . $adress[0]['adressebetegnelse'] . "'); ";
+    '" . $data["primærnavnstatus"] . "', '" . $data['kommuner'][0]["navn"] . "', '" . $data['kommuner'][0]["kode"] . "', '" . $data['visueltcenter'][0] . "', '" . $data['visueltcenter'][1] . "', '" . $adress[0]['adressebetegnelse'] . "'); ";
     $connect->query($sql);
     }
     $connect->close();
+
+
  
   ?>
 
