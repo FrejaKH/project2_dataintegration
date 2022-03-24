@@ -1,5 +1,7 @@
   <?php
+  // set execution time.
 ini_set('max_execution_time', 3600);
+  // set memory limit ulimited.
 ini_set('memory_limit', '-1');
   // Include db settings
   include "connect.php";
@@ -14,18 +16,15 @@ ini_set('memory_limit', '-1');
 
   // Extracting data
   foreach ($json as $data) {
-    // if($tal > 0){
 
  
       $adress = getAdresse($data['visueltcenter'][0], $data['visueltcenter'][1]);
       // Database query to insert data 
-
-      // var_dump($adress[0]['adressebetegnelse']);
  
     $sql =
-      "INSERT INTO steder(hovedtype, undertype, primærtnavn, primærnavnstatus,
+      "INSERT INTO steder(id, hovedtype, undertype, primærtnavn, primærnavnstatus,
       kommunenavn, kommunekode, længde, bredde, adresse) VALUES 
-    ('" . $data["hovedtype"] . "', '" . $data["undertype"] . "', '" . $data["primærtnavn"] . "',
+    ('" . $data["id"] . "', '" . $data["hovedtype"] . "', '" . $data["undertype"] . "', '" . $data["primærtnavn"] . "',
     '" . $data["primærnavnestatus"] . "', '" . $data['kommuner'][0]["navn"] . "', '" . $data['kommuner'][0]["kode"] . "', '" . $data['visueltcenter'][0] . "', '" . $data['visueltcenter'][1] . "', '" . $adress[0]['adressebetegnelse'] . "'); ";
     $connect->query($sql);
     }
