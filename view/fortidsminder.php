@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../stylesheet/style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script type="text/javascript" src="../modules/script.js"></script>
   <title>Fortidsminder</title>
 </head>
@@ -16,7 +16,7 @@
   <div class="pageStructure">
     <div class="boxdiv">
       <div class="paragrahStructure">
-        <h1>Find Fortidsminde nær dig</h2>
+        <h1>Find Fortidsminde nær dig</h1>
           <p>Udfyld felterne nedenfor, og find de Fortidsminder der er nærmest dig</p>
       </div>
     </div>
@@ -49,7 +49,7 @@
 
     <div class="boxdiv">
       <div class="paragrahStructure">
-        <p>Nærmeste Fortidsminder</p>
+        <h3>Nærmeste Fortidsminder</h3>
       </div>
     </div>
     <div class="boxdiv">
@@ -79,10 +79,26 @@
 
     <div class="boxdiv">
       <div class="paragrahStructureTable">
-        <p>Restauranter/forplejningsmuligheder i nærheden</p>
+        <h3>Restauranter/forplejningsmuligheder i nærheden</h3>
       </div>
     </div>
     <div class="boxdiv">
+    <form>
+        <select name="data" onchange="showData(this.value)">
+          <option>-- Vælg Restaurant --</option>
+          <?php
+          include "form_handler.php";
+          foreach ($xml->children() as $child) {
+            if($child->brancheKode == "DD.56.10.99" && $child->postnr == $_POST['postnummer']){
+            $navn = $child->navn1;
+            var_dump($navn);
+            echo "<option value='" . $navn . "'>" . $navn . "</option>";
+            }
+          }
+          ?>
+        </select>
+      </form>
+      
       <div class="searchBoxTable">
         <div class="table-responsive">
           <table class="table">
@@ -103,7 +119,9 @@
         </div>
       </div>
     </div>
-    <?php include('../modules/footer.php'); ?>
+  </div>
+  <?php include('../modules/footer.php'); ?>
+
 </body>
 
 </html>

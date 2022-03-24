@@ -8,8 +8,7 @@ $postnummer = $_POST['postnummer'];
 $afstand = $_POST['afstand'];
 
 $url_adress = "https://api.dataforsyningen.dk/adgangsadresser?vejnavn=" . $vejnavn . "&husnr=" . $husnr . "&postnr=" . $postnummer . "&struktur=mini";
-pretty_dump($url_adress);
-
+var_dump($url_adress);
 // create cURL resource
 $curl = curl_init($url_adress);
 
@@ -21,8 +20,6 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 // Execute http request
 $page = curl_exec($curl);
 $data_adress = json_decode($page);
-
-pretty_dump($data_adress);
 
 $longitude_adress = $data_adress[0]->x;
 $latitude_adress = $data_adress[0]->y;
@@ -45,11 +42,9 @@ curl_setopt($curl2, CURLOPT_SSL_VERIFYPEER, 0);
 $page2 = curl_exec($curl2);
 $data_circle = json_decode($page2);
 
-pretty_dump($data_circle);
+/*--------------------------------------------------------------*/
 
-foreach($data_circle as $data){
-    $navn = var_dump($data->primærtnavn);
+$xml = simplexml_load_file('../php_lib/smiley_xml.xml');
 
-}
 
  
