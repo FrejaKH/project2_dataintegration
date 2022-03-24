@@ -29,12 +29,11 @@
     // if($tal > 0){
 
  
-      // $adress = getAdresse($data['visueltcenter'][0], $data['visueltcenter'][1]);
+      $adress = getAdresse($data['visueltcenter'][0], $data['visueltcenter'][1]);
       // Database query to insert data 
+      die();
+      exit();
 
-      // var_dump($adress[0]['adressebetegnelse']);
-      // exit();
-      // die();
 
 
     // $query .=
@@ -85,12 +84,68 @@
 <?php
 
 function getAdresse($længde, $bredde){
-  $url = "https://api.dataforsyningen.dk/adresser?cirkel=$længde,$bredde,500";
+  $url = "https://api.dataforsyningen.dk/adresser?cirkel=$længde,$bredde,10";
 
   $json = file_get_contents($url);
 
   $json = json_decode($json, true);
+  if(empty($json)){
+    $url = "https://api.dataforsyningen.dk/adresser?cirkel=$længde,$bredde,25";
 
+    $json = file_get_contents($url);
+  
+    $json = json_decode($json, true);
+    if(empty($json)){
+      $url = "https://api.dataforsyningen.dk/adresser?cirkel=$længde,$bredde,50";
+
+      $json = file_get_contents($url);
+    
+      $json = json_decode($json, true);
+    if(empty($json)){
+      $url = "https://api.dataforsyningen.dk/adresser?cirkel=$længde,$bredde,100";
+
+      $json = file_get_contents($url);
+    
+      $json = json_decode($json, true);
+      if(empty($json)){
+        $url = "https://api.dataforsyningen.dk/adresser?cirkel=$længde,$bredde,200";
+  
+        $json = file_get_contents($url);
+      
+        $json = json_decode($json, true);
+        if(empty($json)){
+          $url = "https://api.dataforsyningen.dk/adresser?cirkel=$længde,$bredde,300";
+    
+          $json = file_get_contents($url);
+        
+          $json = json_decode($json, true);
+          if(empty($json)){
+            $url = "https://api.dataforsyningen.dk/adresser?cirkel=$længde,$bredde,400";
+      
+            $json = file_get_contents($url);
+          
+            $json = json_decode($json, true);
+            if(empty($json)){
+              $url = "https://api.dataforsyningen.dk/adresser?cirkel=$længde,$bredde,500";
+        
+              $json = file_get_contents($url);
+            
+              $json = json_decode($json, true);
+              if(empty($json)){  
+                $url = "https://api.dataforsyningen.dk/adresser?cirkel=$længde,$bredde,700";
+          
+                $json = file_get_contents($url);
+              
+                $json = json_decode($json, true);
+              }
+            }
+          }
+        }
+      }
+    }
+    }
+    
+  }
   return $json;
 
 }
