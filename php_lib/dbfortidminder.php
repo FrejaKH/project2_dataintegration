@@ -1,6 +1,6 @@
   <?php
   // set execution time.
-  ini_set('max_execution_time', 3600);
+  ini_set('max_execution_time', 36000);
   // set memory limit ulimited.
   ini_set('memory_limit', '-1');
   // Include db settings
@@ -24,7 +24,9 @@
       "INSERT INTO steder(id, hovedtype, undertype, primærtnavn, primærnavnestatus,
       kommunenavn, kommunekode, længde, bredde, adresse) VALUES 
     ('" . $data["id"] . "', '" . $data["hovedtype"] . "', '" . $data["undertype"] . "', '" . $data["primærtnavn"] . "',
-    '" . $data["primærnavnestatus"] . "', '" . $data['kommuner'][0]["navn"] . "', '" . $data['kommuner'][0]["kode"] . "', '" . $data['visueltcenter'][0] . "', '" . $data['visueltcenter'][1] . "', '" . $adress[0]['adressebetegnelse'] . "'); ";
+    '" . $data["primærnavnestatus"] . "', '" . $data['kommuner'][0]["navn"] . "', '" . $data['kommuner'][0]["kode"] .
+     "', '" . $data['visueltcenter'][0] . "', '" . $data['visueltcenter'][1] . "', '" . $adress[0]['adressebetegnelse'] . "'); ";
+     
     $connect->query($sql);
   }
   $connect->close();
