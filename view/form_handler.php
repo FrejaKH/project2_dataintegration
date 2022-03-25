@@ -21,7 +21,7 @@ $data_adress = json_decode($page);
 
 $longitude_adress = $data_adress[0]->x;
 $latitude_adress = $data_adress[0]->y;
-
+curl_close;
 /* --------------------------------------------------------------------------------------------------------------*/
 
 $afstand = $_POST['afstand'];
@@ -39,6 +39,7 @@ curl_setopt($curl2, CURLOPT_SSL_VERIFYPEER, 0);
 // Execute http request
 $page2 = curl_exec($curl2);
 $data_circle = json_decode($page2);
+curl_close;
 
 /*--------------------------------------------------------------*/
 
