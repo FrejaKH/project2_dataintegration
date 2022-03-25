@@ -17,7 +17,7 @@
     <div class="boxdiv">
       <div class="paragrahStructure">
         <h1>Find Fortidsminde nær dig</h1>
-          <p>Udfyld felterne nedenfor, og find de Fortidsminder der er nærmest dig</p>
+        <p>Udfyld felterne nedenfor, og find de Fortidsminder der er nærmest dig</p>
       </div>
     </div>
     <div class="boxdiv">
@@ -83,39 +83,27 @@
       </div>
     </div>
     <div class="boxdiv">
-    <form>
-        <select name="data" onchange="showData(this.value)">
+      <form>
+        <select name="data" onchange="showData1(this.value)">
           <option>-- Vælg Restaurant --</option>
           <?php
           include "form_handler.php";
           foreach ($xml->children() as $child) {
-            if($child->brancheKode == "DD.56.10.99" && $child->postnr == $_POST['postnummer']){
-            $navn = $child->navn1;
-            var_dump($navn);
-            echo "<option value='" . $navn . "'>" . $navn . "</option>";
+            if ($child->brancheKode == "DD.56.10.99" && $child->postnr == $_POST['postnummer']) {
+              $navn = $child->navn1;
+              // var_dump($navn);
+              echo "<option value='" . $navn . "'>" . $navn . "</option>";
             }
           }
           ?>
         </select>
       </form>
-      
+    </div>
+    <div class="boxdiv">
       <div class="searchBoxTable">
         <div class="table-responsive">
-          <table class="table">
-            <tr>
-              <th>Navn</th>
-              <th>Type</th>
-              <th>Adresse</th>
-              <th>Afstand fra fortidsminde</th>
-              <th>Kommuner</th>
-            </tr>
-            <tr>
-              <td>test</td>
-              <td>test</td>
-              <td>test</td>
-              <td>test</td>
-            </tr>
-          </table>
+          <div id="dataTable1"></div>
+
         </div>
       </div>
     </div>
