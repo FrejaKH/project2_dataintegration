@@ -16,3 +16,5 @@ CREATE TABLE IF NOT EXISTS `steder` (
 );
 
 SET GLOBAL max_allowed_packet=524288000;
+
+

@@ -1,13 +1,11 @@
 <?php
 
-include "pretty_dump.php";
-
 $vejnavn = $_POST['vejnavn'];
 $husnr = $_POST['husnr'];
 $postnummer = $_POST['postnummer'];
 $afstand = $_POST['afstand'];
 
-$url_adress = "https://api.dataforsyningen.dk/adgangsadresser?vejnavn=" . $vejnavn . "&husnr=" . $husnr . "&postnr=" . $postnummer . "&struktur=mini";
+$url_adress = "https://api.dataforsyningen.dk/adgangsadresser?vejnavn=" . rawurlencode("$vejnavn") . "&husnr=" . $husnr . "&postnr=" . $postnummer . "&struktur=mini";
 var_dump($url_adress);
 // create cURL resource
 $curl = curl_init($url_adress);
